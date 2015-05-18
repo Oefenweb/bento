@@ -2,18 +2,19 @@
   "builders": [
     {
       "boot_command": [
-        "<tab> linux ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/fedora-19/ks.cfg<enter><wait>"
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7.1/ks.cfg<enter><wait>"
       ],
       "boot_wait": "10s",
       "disk_size": 40960,
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
-      "guest_os_type": "Fedora",
+      "guest_os_type": "RedHat_64",
+      "hard_drive_interface": "sata",
       "http_directory": "http",
-      "iso_checksum": "0da29695c4f503e2b27350406c1ceb7a4e5b9b699ea722774368fd16ab277bce",
+      "iso_checksum": "3685468ec6cdcb70dfc85ebbc164da427dc2d762644c3c2ee1520f4f661c15ce",
       "iso_checksum_type": "sha256",
-      "iso_url": "{{user `mirror`}}/releases/19/Fedora/i386/iso/Fedora-19-i386-DVD.iso",
-      "output_directory": "packer-fedora-19-i386-virtualbox",
-      "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
+      "iso_url": "{{user `mirror`}}/rhel-server-7.1-x86_64-dvd.iso",
+      "output_directory": "packer-rhel-7.1-x86_64-virtualbox",
+      "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_username": "vagrant",
@@ -24,7 +25,7 @@
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "512"
+          "480"
         ],
         [
           "modifyvm",
@@ -34,48 +35,48 @@
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "packer-fedora-19-i386"
+      "vm_name": "packer-rhel-7.1-x86_64"
     },
     {
       "boot_command": [
-        "<tab> linux ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/fedora-19/ks.cfg<enter><wait>"
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7.1/ks.cfg<enter><wait>"
       ],
       "boot_wait": "10s",
       "disk_size": 40960,
-      "guest_os_type": "fedora",
+      "guest_os_type": "rhel7-64",
       "http_directory": "http",
-      "iso_checksum": "0da29695c4f503e2b27350406c1ceb7a4e5b9b699ea722774368fd16ab277bce",
+      "iso_checksum": "3685468ec6cdcb70dfc85ebbc164da427dc2d762644c3c2ee1520f4f661c15ce",
       "iso_checksum_type": "sha256",
-      "iso_url": "{{user `mirror`}}/releases/19/Fedora/i386/iso/Fedora-19-i386-DVD.iso",
-      "output_directory": "packer-fedora-19-i386-vmware",
-      "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
+      "iso_url": "{{user `mirror`}}/rhel-server-7.1-x86_64-dvd.iso",
+      "output_directory": "packer-rhel-7.1-x86_64-vmware",
+      "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_username": "vagrant",
       "ssh_wait_timeout": "10000s",
       "tools_upload_flavor": "linux",
       "type": "vmware-iso",
-      "vm_name": "packer-fedora-19-i386",
+      "vm_name": "packer-rhel-7.1-x86_64",
       "vmx_data": {
         "cpuid.coresPerSocket": "1",
-        "memsize": "512",
+        "memsize": "480",
         "numvcpus": "1"
       }
     },
     {
       "boot_command": [
-        "<tab> linux ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/fedora-19/ks.cfg<enter><wait>"
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7.1/ks.cfg<enter><wait>"
       ],
       "boot_wait": "10s",
       "disk_size": 40960,
       "parallels_tools_flavor": "lin",
-      "guest_os_type": "fedora-core",
+      "guest_os_type": "rhel",
       "http_directory": "http",
-      "iso_checksum": "0da29695c4f503e2b27350406c1ceb7a4e5b9b699ea722774368fd16ab277bce",
+      "iso_checksum": "3685468ec6cdcb70dfc85ebbc164da427dc2d762644c3c2ee1520f4f661c15ce",
       "iso_checksum_type": "sha256",
-      "iso_url": "{{user `mirror`}}/releases/19/Fedora/i386/iso/Fedora-19-i386-DVD.iso",
-      "output_directory": "packer-fedora-19-i386-parallels",
-      "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
+      "iso_url": "{{user `mirror`}}/rhel-server-7.1-x86_64-dvd.iso",
+      "output_directory": "packer-rhel-7.1-x86_64-parallels",
+      "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_username": "vagrant",
@@ -86,7 +87,7 @@
           "set",
           "{{.Name}}",
           "--memsize",
-          "512"
+          "480"
         ],
         [
           "set",
@@ -96,13 +97,13 @@
         ]
       ],
       "prlctl_version_file": ".prlctl_version",
-      "vm_name": "packer-fedora-19-i386"
+      "vm_name": "packer-rhel-7.1-x86_64"
     }
 
   ],
   "post-processors": [
     {
-      "output": "../builds/{{.Provider}}/opscode_fedora-19-i386_chef-{{user `chef_version`}}.box",
+      "output": "../builds/{{.Provider}}/opscode_rhel-7.1_chef-{{user `chef_version`}}.box",
       "type": "vagrant"
     }
   ],
@@ -111,14 +112,14 @@
       "environment_vars": [
         "CHEF_VERSION={{user `chef_version`}}"
       ],
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "scripts": [
-        "scripts/fedora/fix-slow-dns.sh",
+        "scripts/centos/fix-slow-dns.sh",
         "scripts/common/sshd.sh",
+        "scripts/common/vagrant.sh",
         "scripts/common/vmtools.sh",
         "scripts/common/chef.sh",
-        "scripts/common/vagrant.sh",
-        "scripts/fedora/cleanup.sh",
+        "scripts/centos/cleanup.sh",
         "scripts/common/minimize.sh"
       ],
       "type": "shell"
@@ -126,7 +127,7 @@
   ],
   "variables": {
     "chef_version": "provisionerless",
-    "mirror": "http://mirrors.kernel.org/fedora"
+    "mirror": "http://put-your-mirror-here/"
   }
 }
 
