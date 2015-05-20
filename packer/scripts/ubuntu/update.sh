@@ -7,8 +7,8 @@ if [[ "$UBUNTU_VERSION" == '12.04' ]]; then
   rm -rf /var/lib/apt/lists
 fi
 
-# Update the package list
-apt-get update
+# Update the package list and upgrade all packages
+apt-get update && apt-get -y dist-upgrade
 
 # Upgrade all installed packages incl. kernel and kernel headers
 apt-get -y upgrade linux-server linux-headers-server
