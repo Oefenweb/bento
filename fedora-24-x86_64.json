@@ -61,6 +61,7 @@
       "vm_name": "{{ user `template` }}",
       "vmx_data": {
         "cpuid.coresPerSocket": "1",
+        "ethernet0.pciSlotNumber": "32",
         "memsize": "{{ user `memory` }}",
         "numvcpus": "{{ user `cpus` }}"
       }
@@ -145,8 +146,8 @@
       "scripts": [
         "scripts/common/metadata.sh",
         "scripts/fedora/fix-slow-dns.sh",
-        "scripts/common/sshd.sh",
         "scripts/fedora/build-tools.sh",
+        "scripts/common/sshd.sh",
         "scripts/common/vmtools.sh",
         "scripts/common/vagrant.sh",
         "scripts/fedora/cleanup.sh",
@@ -157,7 +158,7 @@
   ],
   "variables": {
     "arch": "64",
-    "box_basename": "fedora-22",
+    "box_basename": "fedora-24",
     "build_timestamp": "{{isotime \"20060102150405\"}}",
     "cpus": "1",
     "disk_size": "40960",
@@ -165,17 +166,17 @@
     "headless": "",
     "http_proxy": "{{env `http_proxy`}}",
     "https_proxy": "{{env `https_proxy`}}",
-    "iso_checksum": "b2acfa7c7c6b5d2f51d3337600c2e52eeaa1a1084991181c28ca30343e52e0df",
+    "iso_checksum": "1c0971d4c1a37bb06ec603ed3ded0af79e22069499443bb2d47e501c9ef42ae8",
     "iso_checksum_type": "sha256",
-    "iso_name": "Fedora-Server-DVD-x86_64-22.iso",
-    "ks_path": "fedora-22/ks.cfg",
+    "iso_name": "Fedora-Server-dvd-x86_64-24-1.2.iso",
+    "ks_path": "fedora-latest/ks.cfg",
     "memory": "512",
     "metadata": "floppy/dummy_metadata.json",
     "mirror": "http://download.fedoraproject.org/pub/fedora/linux",
-    "mirror_directory": "releases/22/Server/x86_64/iso",
-    "name": "fedora-22",
+    "mirror_directory": "releases/24/Server/x86_64/iso",
+    "name": "fedora-24",
     "no_proxy": "{{env `no_proxy`}}",
-    "template": "fedora-22-x86_64",
+    "template": "fedora-24-x86_64",
     "version": "2.0.TIMESTAMP"
   }
 }
