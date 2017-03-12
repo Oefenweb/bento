@@ -13,4 +13,4 @@ fi
 chown -R vagrant $HOME_DIR/.ssh;
 chmod -R go-rwsx $HOME_DIR/.ssh;
 
-rsync -avP --delete --no-o --no-g $HOME_DIR/.ssh/ ~root/.ssh;
+rsync -aq --delete --no-o --no-g $HOME_DIR/.ssh/ ~root/.ssh;
