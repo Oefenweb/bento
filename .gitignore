@@ -9,6 +9,7 @@ packer.log
 *.variables.json
 /builds/
 .kitchen
-.kitchen.*.yml
+.kitchen.yml
 Gemfile.lock
+bootstrap.sh
 /nbproject

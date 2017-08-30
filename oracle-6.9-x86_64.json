@@ -63,7 +63,8 @@
         "cpuid.coresPerSocket": "1",
         "memsize": "{{ user `memory` }}",
         "numvcpus": "{{ user `cpus` }}"
-      }
+      },
+      "vmx_remove_ethernet_interfaces": true
     },
     {
       "boot_command": [
@@ -144,6 +145,7 @@
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
       "scripts": [
         "scripts/common/metadata.sh",
+        "scripts/centos/update.sh",
         "scripts/centos/networking.sh",
         "scripts/common/sshd.sh",
         "scripts/common/vagrant.sh",
@@ -169,14 +171,15 @@
     "iso_checksum": "c32e2a7c8eb471db731741f1a30be37e49deda8ce961710273a71b26c9a04a36",
     "iso_checksum_type": "sha256",
     "iso_name": "OracleLinux-R6-U9-Server-x86_64-dvd.iso",
-    "ks_path": "centos-6.9/ks.cfg",
-    "memory": "512",
+    "ks_path": "rhel-6/ks.cfg",
+    "memory": "1024",
     "metadata": "floppy/dummy_metadata.json",
     "mirror": "http://mirrors.kernel.org/oracle/",
     "mirror_directory": "OL6/U9/x86_64",
     "name": "oracle-6.9",
     "no_proxy": "{{env `no_proxy`}}",
     "template": "oracle-6.9-x86_64",
-    "version": "2.2.TIMESTAMP"
+    "version": "TIMESTAMP"
   }
 }
+

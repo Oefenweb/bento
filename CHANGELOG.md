@@ -1,4 +1,69 @@
 # Change Log
+
+## [201708.22.0](https://github.com/chef/bento/tree/201708.22.0) (2017-08-22)
+
+**New**
+- Debian 9.1
+- Debian 8.9
+- FreeBSD 11.1
+
+**Improvements**
+- Top level slugs for point release platforms, i.e. centos-7 -> centos-7.3
+- Move to date based versioning scheme `YYYYMM.DD.PATCH`
+- Automatically update RHEL-ish platforms as we do with other platforms
+
+**Tooling**
+- VirtualBox 5.1.26
+- VMware Fusion 8.5.8
+- VMware Workstation 12.5.7
+- Parallels 13.0.0
+- Packer 1.0.4
+
+## [2.3.8](https://github.com/chef/bento/tree/2.3.8) (2017-07-20)
+
+**New**
+- Fedora 26
+
+**Improvements**
+- Suppress VMX whitelisting warning by removing interfaces at end of build
+- Use archive.ubuntu.com instead of US specific domain
+- Latest Tooling
+  - VirtualBox 5.1.24
+  - VMware Fusion 8.5.8
+  - Parallels 12.2.1
+  - Packer 1.0.3
+
+## [2.3.7](https://github.com/chef/bento/tree/2.3.7) (2017-07-03)
+
+**New**
+- Debian 8.8
+- Debian 9.0 [\#818](https://github.com/chef/bento/pull/818)
+- Oracle 6.9
+- Ubuntu 17.04 [\#808](https://github.com/chef/bento/pull/808)
+
+**Removed**
+- OmniOS
+- Ubuntu 12.04
+- SLES 12 / 12 SP1
+
+**Fixes**
+- Fedora cleanup and size reduction
+
+## [2.3.6](https://github.com/chef/bento/tree/2.3.6) (2017-05-03)
+
+- Release for fixed VirtualBox 5.1.22
+
+## [2.3.5](https://github.com/chef/bento/tree/2.3.5) (2017-04-24)
+
+- Release primarily around broken VirtualBox 5.1.20/21 (fixed)
+
+**New**
+- CentOS 6.9 [\#788](https://github.com/chef/bento/pull/788)
+
+**Fixes**
+- Oracle 6.8 `box_basename` [\#784](https://github.com/chef/bento/pull/784)
+- MacOS 10.12 issue w/ memory var [\#768](https://github.com/chef/bento/pull/768)
+
 ## [2.3.4](https://github.com/chef/bento/tree/2.3.4) (2017-03-23)
 
 - Mostly rebuilt for updated hypervisors: VirtualBox 5.1.18 and VMware Fusion 8.5.5
